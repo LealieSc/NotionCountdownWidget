@@ -16,7 +16,9 @@
             background-color: #EEF3ED;
         }
         #countdown {
-            font-size: 2em;
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
             color: #FFFFFF;
             background-color: #EEF3ED;
             padding: 20px;
@@ -24,12 +26,37 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
+        .time-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .number {
+            font-size: 3em;
+            font-weight: bold;
+        }
+        .label {
+            font-size: 1em;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
 
 <div id="countdown">
-    <p id="time">Loading...</p>
+    <div class="time-section">
+        <div id="years" class="number">0</div>
+        <div class="label">Years</div>
+    </div>
+    <div class="time-section">
+        <div id="months" class="number">0</div>
+        <div class="label">Months</div>
+    </div>
+    <div class="time-section">
+        <div id="days" class="number">0</div>
+        <div class="label">Days</div>
+    </div>
 </div>
 
 <script>
@@ -41,7 +68,9 @@
         const months = Math.floor((distance % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
         const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
 
-        document.getElementById('time').innerHTML = `${years} Jahre, ${months} Monate, ${days} Tage`;
+        document.getElementById('years').textContent = years;
+        document.getElementById('months').textContent = months;
+        document.getElementById('days').textContent = days;
     }
 
     const targetDate = new Date('2025-08-15T00:00:00').getTime(); // Ziel-Datum: 15. August 2025
