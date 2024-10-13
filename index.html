@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Widget</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        #countdown {
+            font-size: 2em;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div id="countdown">
+    <p id="time">Loading...</p>
+</div>
+
+<script>
+    function countdown(targetDate) {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        const years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365));
+        const months = Math.floor((distance % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+        const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+
+        document.getElementById('time').innerHTML = `${years} Jahre, ${months} Monate, ${days} Tage`;
+    }
+
+    const targetDate = new Date('2025-12-31T00:00:00').getTime(); // Datum anpassen
+    setInterval(() => countdown(targetDate), 1000);
+</script>
+
+</body>
+</html>
