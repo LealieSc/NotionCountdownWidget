@@ -13,7 +13,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #EEF3ED; /* Hintergrundfarbe */
+            background-color: #191919; /* Hintergrundfarbe */
         }
         #countdown {
             display: flex;
@@ -76,7 +76,7 @@
         document.getElementById('days').textContent = days;
     }
 
-    const targetDate = new Date('2025-08-15T00:00:00').getTime(); // Ziel-Datum: 15. August 2025
+    const targetDate = new Date('2026-08-15T00:00:00').getTime(); // Ziel-Datum: 15. August 2025
     setInterval(() => countdown(targetDate), 1000);
 </script>
 
