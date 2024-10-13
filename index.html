@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Countdown Widget</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Inter, sans-serif;
+            font-family: 'Inter', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #182217;
+            margin: 0;
+            background-color: #EEF3ED;
         }
         #countdown {
-            font-size: 1em;
-            background-color: #182217;
-            <!--padding: 20px;-->
-            <!--border-radius: 10px;-->
-            <!--box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);-->
+            font-size: 2em;
+            color: #FFFFFF;
+            background-color: #EEF3ED;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
     </style>
 </head>
@@ -40,7 +44,7 @@
         document.getElementById('time').innerHTML = `${years} Jahre, ${months} Monate, ${days} Tage`;
     }
 
-    const targetDate = new Date('2025-08-15T00:00:00').getTime(); // Datum anpassen
+    const targetDate = new Date('2025-08-15T00:00:00').getTime(); // Ziel-Datum: 15. August 2025
     setInterval(() => countdown(targetDate), 1000);
 </script>
 
