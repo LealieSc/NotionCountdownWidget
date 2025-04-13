@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Widget</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #191919; /* Hintergrundfarbe */
+        }
+        #countdown {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 80%;
+            color: #FFFFFF;
+            background-color: #222B26; /* Widget Hintergrundfarbe */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .time-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 15px; /* Abstand zwischen den Zeitabschnitten */
+        }
+        .number {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 0;
+        }
+        .label {
+            font-size: 0.5em;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="countdown">
+    <div class="time-section">
+        <div id="years" class="number">0</div>
+        <div class="label">Years</div>
+    </div>
+    <div class="time-section">
+        <div id="months" class="number">0</div>
+        <div class="label">Months</div>
+    </div>
+    <div class="time-section">
+        <div id="days" class="number">0</div>
+        <div class="label">Days</div>
+    </div>
+</div>
+
+<script>
+    function countdown(targetDate) {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        const years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365));
+        const months = Math.floor((distance % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+        const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+
+        document.getElementById('years').textContent = years;
+        document.getElementById('months').textContent = months;
+        document.getElementById('days').textContent = days;
+    }
+
+    const targetDate = new Date('2025-07-19T00:00:00').getTime(); // Ziel-Datum: 15. August 2025
+    setInterval(() => countdown(targetDate), 1000);
+</script>
+
+</body>
+</html>
